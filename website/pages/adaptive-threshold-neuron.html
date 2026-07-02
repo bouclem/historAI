@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaptive Threshold Neuron — historAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="../index.html" class="logo">histor<span>AI</span></a>
+        <ul>
+            <li><a href="../index.html">Timeline</a></li>
+            <li><a href="../explore.html">Explore Architectures</a></li>
+            <li><a href="../benchmarks.html">Benchmarks</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="arch-header">
+    <div class="container">
+        <div class="breadcrumb"><a href="../index.html">← Back to Timeline</a></div>
+        <h1>Adaptive Threshold Neuron</h1>
+        <div class="meta">
+            <span>📅 1948</span>
+            <span>👤 historAI Project</span>
+            <span>🏷️ Divergence — Worse</span>
+        </div>
+    </div>
+</header>
+
+<section class="container section">
+    <h2>Overview</h2>
+    <p>
+        The Adaptive Threshold Neuron is a divergence architecture — a model that could have
+        existed in 1948, between the McCulloch-Pitts neuron (1943) and the perceptron (1957).
+    </p>
+    <p>
+        The McCulloch-Pitts neuron had fixed weights and a fixed threshold. The perceptron
+        made weights adaptive but treated the threshold as a bias term. This model takes a
+        different path: it makes the <strong>threshold itself</strong> a learnable parameter.
+    </p>
+    <p>
+        The threshold adapts based on prediction errors:
+    </p>
+    <p style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent); padding-left: var(--space-sm);">
+        θ(t+1) = θ(t) − r · (d_j − y_j)
+    </p>
+    <p>
+        When the neuron fires too often (predicts 1 when it should predict 0), the threshold
+        increases — making it harder to fire. When it doesn't fire enough (predicts 0 when it
+        should predict 1), the threshold decreases — making it easier to fire. Weights also
+        adapt simultaneously:
+    </p>
+    <p style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent); padding-left: var(--space-sm);">
+        w_i(t+1) = w_i(t) + r · (d_j − y_j) · x_j,i
+    </p>
+    <p>
+        Whether this approach is better or worse than the perceptron's bias-based threshold
+        depends on testing — convergence speed, stability, and accuracy across different
+        problems.
+    </p>
+</section>
+
+<section class="container">
+    <div class="legend">
+        <div class="legend-item">
+            <span class="legend-dot normal"></span>
+            <span>Real history</span>
+        </div>
+        <div class="legend-item">
+            <span class="legend-dot worse"></span>
+            <span>Divergence — worse</span>
+        </div>
+        <div class="legend-item">
+            <span class="legend-dot better"></span>
+            <span>Divergence — better</span>
+        </div>
+        <div class="legend-item">
+            <span class="legend-dot untested"></span>
+            <span>Divergence — untested</span>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="timeline">
+        <a href="mcculloch-pitts.html" class="timeline-entry normal">
+            <div class="year">1943</div>
+            <div class="title">McCulloch-Pitts Neuron — Fixed Threshold</div>
+            <div class="description">
+                The original neuron model: fixed weights, fixed threshold. The threshold θ is
+                a constant — the neuron fires if the weighted sum of inputs reaches θ. No
+                learning occurs.
+            </div>
+            <span class="tag">Real History</span>
+        </a>
+
+        <div class="timeline-entry worse">
+            <div class="year">1948 — DIVERGENCE</div>
+            <div class="title">Adaptive Threshold Neuron</div>
+            <div class="description">
+                Instead of keeping the threshold fixed (McCulloch-Pitts) or treating it as a
+                bias weight (perceptron), this model makes the threshold a first-class
+                learnable parameter. The threshold adapts automatically based on prediction
+                errors — increasing when the neuron fires too often, decreasing when it
+                doesn't fire enough.
+            </div>
+            <span class="tag">Divergence — Worse</span>
+        </div>
+
+        <a href="perceptron.html" class="timeline-entry normal">
+            <div class="year">1957</div>
+            <div class="title">Perceptron — Adaptive Weights, Bias Threshold</div>
+            <div class="description">
+                Rosenblatt's perceptron takes a different approach: weights adapt, but the
+                threshold is absorbed into a bias term. The perceptron learning rule updates
+                weights based on errors, but the threshold is just another weight connected
+                to a constant input of 1.
+            </div>
+            <span class="tag">Real History</span>
+        </a>
+    </div>
+</section>
+
+<section class="container code-section" id="code-block" data-md-source="../architecture/adaptive-threshold-neuron.md">
+    <h2>Source Code — From Scratch</h2>
+    <p>Our from-scratch implementation of the adaptive threshold neuron in Python.</p>
+    <div class="code-container">
+        <div class="code-header">
+            <span class="filename">adaptive_threshold_neuron.py</span>
+            <span class="lang-badge">Python</span>
+        </div>
+        <div class="code-content">
+            <!-- Code loaded by script.js -->
+        </div>
+    </div>
+</section>
+
+<section class="container related">
+    <h2>Related</h2>
+    <div class="related-grid">
+        <a href="mcculloch-pitts.html" class="related-card">
+            <div class="card-title">McCulloch & Pitts Neuron (1943)</div>
+            <div class="card-desc">The fixed-threshold predecessor that inspired this divergence.</div>
+        </a>
+        <a href="perceptron.html" class="related-card">
+            <div class="card-title">Perceptron (1957)</div>
+            <div class="card-desc">The real-history approach — adaptive weights, bias as threshold.</div>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>historAI — The history of artificial intelligence, remade from scratch.</p>
+    </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

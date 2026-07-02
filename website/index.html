@@ -17,6 +17,7 @@
         <ul>
             <li><a href="index.html">Timeline</a></li>
             <li><a href="explore.html">Explore Architectures</a></li>
+            <li><a href="benchmarks.html">Benchmarks</a></li>
         </ul>
     </div>
 </nav>
@@ -46,6 +47,10 @@
             <span class="legend-dot better"></span>
             <span>Divergence — things went better</span>
         </div>
+        <div class="legend-item">
+            <span class="legend-dot untested"></span>
+            <span>Divergence — untested</span>
+        </div>
     </div>
 </section>
 
@@ -55,6 +60,7 @@
         <button class="filter-btn" data-filter="normal"><span class="dot normal"></span>Real History</button>
         <button class="filter-btn" data-filter="worse"><span class="dot worse"></span>Worse</button>
         <button class="filter-btn" data-filter="better"><span class="dot better"></span>Better</button>
+        <button class="filter-btn" data-filter="untested"><span class="dot untested"></span>Untested</button>
     </div>
 
     <div class="timeline">
@@ -68,6 +74,18 @@
                 logical operations, laying the theoretical foundation for all neural networks.
             </div>
             <span class="tag">Real History</span>
+        </a>
+
+        <a href="pages/adaptive-threshold-neuron.html" class="timeline-entry worse">
+            <div class="year">1948 — DIVERGENCE</div>
+            <div class="title">Adaptive Threshold Neuron</div>
+            <div class="description">
+                A neuron where the threshold adapts automatically during learning — not fixed
+                like McCulloch-Pitts, not absorbed into bias like the perceptron. The threshold
+                itself is a learnable parameter that adjusts based on prediction errors. A
+                divergence architecture that could have existed between 1943 and 1957.
+            </div>
+            <span class="tag">Divergence — Worse</span>
         </a>
 
         <div class="timeline-entry normal">

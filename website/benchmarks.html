@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benchmarks — historAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="index.html" class="logo">histor<span>AI</span></a>
+        <ul>
+            <li><a href="index.html">Timeline</a></li>
+            <li><a href="explore.html">Explore Architectures</a></li>
+            <li><a href="benchmarks.html">Benchmarks</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="arch-header">
+    <div class="container">
+        <div class="breadcrumb"><a href="index.html">← Back to Timeline</a></div>
+        <h1>Benchmarks</h1>
+        <p style="color: var(--text-secondary); max-width: 620px; margin-top: var(--space-xs);">
+            Public benchmark results comparing all architectures across 6 datasets
+            of varying difficulty. Each architecture is tested 5 times for stability.
+        </p>
+    </div>
+</header>
+
+<section class="container section">
+    <h2>Test Datasets</h2>
+    <p>Six synthetic datasets designed to test different capabilities: linear separability,
+       noise tolerance, non-linear patterns, high dimensionality, and scalability.</p>
+    <img src="benchmark-results/datasets.png" alt="Benchmark datasets visualization"
+         style="width: 100%; max-width: 900px; border-radius: var(--radius-md); border: 1px solid var(--border); margin-top: var(--space-sm);">
+</section>
+
+<section class="container section">
+    <h2>Error History</h2>
+    <p>Misclassifications per epoch for each architecture on each dataset. Lower is better.</p>
+    <img src="benchmark-results/error_history.png" alt="Error history comparison"
+         style="width: 100%; max-width: 1200px; border-radius: var(--radius-md); border: 1px solid var(--border); margin-top: var(--space-sm);">
+</section>
+
+<section class="container section">
+    <h2>Metric Comparison</h2>
+    <p>Accuracy, F1 score, epochs to converge, and training time across all datasets.
+       Error bars show standard deviation across 5 runs.</p>
+    <img src="benchmark-results/metric_comparison.png" alt="Metric comparison bar charts"
+         style="width: 100%; max-width: 1200px; border-radius: var(--radius-md); border: 1px solid var(--border); margin-top: var(--space-sm);">
+</section>
+
+<section class="container section">
+    <h2>Average Performance</h2>
+    <p>Radar chart showing average performance across all datasets for each architecture.</p>
+    <img src="benchmark-results/radar_comparison.png" alt="Radar chart comparison"
+         style="width: 100%; max-width: 600px; border-radius: var(--radius-md); border: 1px solid var(--border); margin-top: var(--space-sm);">
+</section>
+
+<section class="container section">
+    <h2>Results Summary</h2>
+    <p>Based on the benchmark results, the Adaptive Threshold Neuron performs identically
+       to the Perceptron in accuracy and convergence on all datasets, but is approximately
+       1.6x slower due to the additional threshold update computation. Both architectures
+       fail on non-linearly separable datasets (Concentric Circles, Extended XOR) as expected
+       for single-layer linear classifiers.</p>
+
+    <h3 style="margin-top: var(--space-md); margin-bottom: var(--space-xs);">Key Findings</h3>
+    <ul style="color: var(--text-secondary); padding-left: var(--space-md); line-height: 1.8;">
+        <li><strong style="color: var(--color-better);">Linear Separable:</strong> Both converge in 2 epochs, 100% accuracy</li>
+        <li><strong style="color: var(--color-worse);">Noisy Linear:</strong> Both plateau at 82% accuracy, neither converges</li>
+        <li><strong style="color: var(--color-worse);">Concentric Circles:</strong> Both fail (~54% accuracy) — non-linear data</li>
+        <li><strong style="color: var(--color-better);">High-Dimensional:</strong> Both converge in 2 epochs, 100% accuracy</li>
+        <li><strong style="color: var(--color-better);">Large Scale:</strong> Both converge in 2 epochs, 100% accuracy</li>
+        <li><strong style="color: var(--color-worse);">Extended XOR:</strong> Both fail (~48% accuracy) — non-linear data</li>
+    </ul>
+
+    <h3 style="margin-top: var(--space-md); margin-bottom: var(--space-xs);">Verdict: Adaptive Threshold Neuron</h3>
+    <p style="color: var(--text-secondary);">
+        The adaptive threshold provides no accuracy advantage over the perceptron's bias-based
+        approach. The threshold converges to a small positive value (0.01) which is functionally
+        equivalent to a bias. The extra computation makes it slower with no benefit — this
+        divergence is <strong style="color: var(--color-worse);">worse than real history</strong>.
+    </p>
+</section>
+
+<footer>
+    <div class="container">
+        <p>historAI — The history of artificial intelligence, remade from scratch.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
