@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minsky & Papert's Perceptrons — historAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="../index.html" class="logo">histor<span>AI</span></a>
+        <ul>
+            <li><a href="../index.html">Timeline</a></li>
+            <li><a href="../explore.html">Explore Architectures</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="arch-header">
+    <div class="container">
+        <div class="breadcrumb"><a href="../index.html">← Back to Timeline</a></div>
+        <h1>Minsky & Papert's "Perceptrons"</h1>
+        <div class="meta">
+            <span>📅 1969</span>
+            <span>👤 Marvin Minsky & Seymour Papert</span>
+            <span>📍 MIT</span>
+            <span>🏷️ Event / Critique</span>
+        </div>
+    </div>
+</header>
+
+<section class="container section">
+    <h2>Overview</h2>
+    <p>
+        In 1969, Marvin Minsky and Seymour Papert published "Perceptrons" — a book that
+        mathematically analyzed the capabilities and limitations of single-layer perceptrons.
+        Their central result: a single-layer perceptron cannot learn the XOR function, or
+        any pattern that is not linearly separable.
+    </p>
+    <p>
+        The book was rigorous and correct. However, it was widely misinterpreted as a
+        condemnation of neural networks in general. In reality, Minsky and Papert knew that
+        multilayer networks could solve XOR and other non-linear problems — but no effective
+        training algorithm for multilayer networks existed yet (backpropagation wouldn't be
+        popularized until 1986).
+    </p>
+    <p>
+        The impact was devastating. Funding for neural network research collapsed. The field
+        entered what became known as the "AI winter" — a period lasting over a decade where
+        neural network research was effectively frozen out of mainstream AI. Researchers
+        pivoted to symbolic AI, expert systems, and other approaches.
+    </p>
+    <p>
+        It wasn't until the 1980s, with the popularization of backpropagation by Rumelhart,
+        Hinton, and Williams, that neural network research experienced a resurgence. The
+        perceptron's core idea — learning by adjusting weights based on errors — survived
+        and became the foundation of modern deep learning.
+    </p>
+</section>
+
+<section class="container related">
+    <h2>Related</h2>
+    <div class="related-grid">
+        <a href="perceptron.html" class="related-card">
+            <div class="card-title">Perceptron (1957)</div>
+            <div class="card-desc">The architecture that Minsky & Papert analyzed.</div>
+        </a>
+        <a href="dartmouth.html" class="related-card">
+            <div class="card-title">Dartmouth Conference (1956)</div>
+            <div class="card-desc">Where Minsky and the AI field began.</div>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>historAI — The history of artificial intelligence, remade from scratch.</p>
+    </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

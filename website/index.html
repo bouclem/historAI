@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>historAI — An Alternate History of Artificial Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="index.html" class="logo">histor<span>AI</span></a>
+        <ul>
+            <li><a href="index.html">Timeline</a></li>
+            <li><a href="explore.html">Explore Architectures</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="container">
+        <h1>The history of <span class="accent">AI</span>,<br>remade from scratch.</h1>
+        <p class="subtitle">
+            The real history of artificial intelligence — from the first neuron model to modern
+            architectures. At certain points, we introduce divergence: new architectures that
+            could have existed at that moment in time, fully implemented from scratch.
+        </p>
+    </div>
+</header>
+
+<section class="container">
+    <div class="legend">
+        <div class="legend-item">
+            <span class="legend-dot normal"></span>
+            <span>Real history — as it actually happened</span>
+        </div>
+        <div class="legend-item">
+            <span class="legend-dot worse"></span>
+            <span>Divergence — things went worse</span>
+        </div>
+        <div class="legend-item">
+            <span class="legend-dot better"></span>
+            <span>Divergence — things went better</span>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="normal"><span class="dot normal"></span>Real History</button>
+        <button class="filter-btn" data-filter="worse"><span class="dot worse"></span>Worse</button>
+        <button class="filter-btn" data-filter="better"><span class="dot better"></span>Better</button>
+    </div>
+
+    <div class="timeline">
+        <a href="pages/mcculloch-pitts.html" class="timeline-entry normal">
+            <div class="year">1943</div>
+            <div class="title">McCulloch & Pitts Neuron</div>
+            <div class="description">
+                Warren McCulloch and Walter Pitts publish "A Logical Calculus of the Ideas
+                Immanent in Nervous Activity" — the first mathematical model of an artificial
+                neuron. Their work shows how networks of simple threshold units can perform
+                logical operations, laying the theoretical foundation for all neural networks.
+            </div>
+            <span class="tag">Real History</span>
+        </a>
+
+        <div class="timeline-entry normal">
+            <div class="year">1950</div>
+            <div class="title">Turing Test</div>
+            <div class="description">
+                Alan Turing publishes "Computing Machinery and Intelligence," proposing the
+                Imitation Game (Turing Test) — a practical criterion for machine intelligence
+                based on indistinguishability from human conversation.
+            </div>
+            <span class="tag">Real History</span>
+        </div>
+
+        <a href="pages/dartmouth.html" class="timeline-entry normal">
+            <div class="year">1956</div>
+            <div class="title">Dartmouth Conference</div>
+            <div class="description">
+                John McCarthy organizes the Dartmouth Summer Research Project, coining the term
+                "Artificial Intelligence." The workshop brings together researchers who would
+                define the field for decades: Marvin Minsky, Claude Shannon, Allen Newell,
+                and Herbert Simon.
+            </div>
+            <span class="tag">Real History</span>
+        </a>
+
+        <a href="pages/perceptron.html" class="timeline-entry normal">
+            <div class="year">1957</div>
+            <div class="title">The Perceptron</div>
+            <div class="description">
+                Frank Rosenblatt, at the Cornell Aeronautical Laboratory, simulates the first
+                perceptron on an IBM 704. The perceptron is a single-layer neural network that
+                learns to classify inputs by adjusting weights — the first machine capable of
+                learning from experience.
+            </div>
+            <span class="tag">Real History</span>
+        </a>
+
+        <div class="timeline-entry normal">
+            <div class="year">1958</div>
+            <div class="title">Perceptron Hype</div>
+            <div class="description">
+                At a Navy press conference, Rosenblatt demonstrates the perceptron learning to
+                distinguish cards marked on the left from those on the right after 50 trials.
+                The New York Times reports it as "the embryo of an electronic computer that
+                will be able to walk, talk, see, write, reproduce itself and be conscious of
+                its existence." The New Yorker calls it "the first serious rival to the human
+                brain ever devised."
+            </div>
+            <span class="tag">Real History</span>
+        </div>
+
+        <div class="timeline-entry normal">
+            <div class="year">1960</div>
+            <div class="title">Mark I Perceptron</div>
+            <div class="description">
+                Rosenblatt's team completes the Mark I Perceptron — a custom-built analog
+                computer with 400 photocells in a 20×20 grid (sensory units), 512 association
+                units, and 8 response units. Weight updates are performed by electric motors
+                driving potentiometers. The machine is designed for image recognition.
+            </div>
+            <span class="tag">Real History</span>
+        </div>
+
+        <div class="timeline-entry normal">
+            <div class="year">1962</div>
+            <div class="title">Principles of Neurodynamics</div>
+            <div class="description">
+                Rosenblatt publishes his comprehensive book, describing experiments with many
+                perceptron variants: cross-coupled networks, back-coupling (feedback from later
+                to earlier layers), four-layer perceptrons with adjustable weights, and
+                time-delay units for sequential data. He even experiments with audio processing
+                instead of images.
+            </div>
+            <span class="tag">Real History</span>
+        </div>
+
+        <a href="pages/minsky-papert.html" class="timeline-entry normal">
+            <div class="year">1969</div>
+            <div class="title">Minsky & Papert's "Perceptrons"</div>
+            <div class="description">
+                Marvin Minsky and Seymour Papert publish "Perceptrons," mathematically proving
+                that single-layer perceptrons cannot learn the XOR function. Though they know
+                multilayer networks can solve it, the book is widely interpreted as a death
+                sentence for neural networks. Funding collapses. The AI winter begins.
+            </div>
+            <span class="tag">Real History</span>
+        </a>
+
+        <div class="timeline-entry normal">
+            <div class="year">1971</div>
+            <div class="title">Rosenblatt's Death</div>
+            <div class="description">
+                Frank Rosenblatt dies in a boating accident on his 43rd birthday. His last
+                project, Tobermory — a 4-layer perceptron with 12,000 weights for speech
+                recognition — is never completed. By this time, digital simulation has
+                surpassed purpose-built perceptron hardware.
+            </div>
+            <span class="tag">Real History</span>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>historAI — The history of artificial intelligence, remade from scratch.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

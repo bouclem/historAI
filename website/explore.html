@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Architectures — historAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="index.html" class="logo">histor<span>AI</span></a>
+        <ul>
+            <li><a href="index.html">Timeline</a></li>
+            <li><a href="explore.html">Explore Architectures</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="arch-header">
+    <div class="container">
+        <div class="breadcrumb"><a href="index.html">← Back to Timeline</a></div>
+        <h1>Explore Architectures</h1>
+        <p style="color: var(--text-secondary); max-width: 620px; margin-top: var(--space-xs);">
+            All AI architectures implemented from scratch as part of this project. Each has its
+            own page with history, divergence points, and source code.
+        </p>
+    </div>
+</header>
+
+<section class="container section">
+    <div class="arch-grid">
+        <a href="pages/perceptron.html" class="arch-card">
+            <div class="card-year">1957</div>
+            <div class="card-title">Perceptron</div>
+            <div class="card-desc">
+                Frank Rosenblatt's learning machine — the first neural network. A binary
+                linear classifier that adjusts weights based on prediction errors.
+            </div>
+            <div class="card-link">→ View architecture & code</div>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>historAI — The history of artificial intelligence, remade from scratch.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

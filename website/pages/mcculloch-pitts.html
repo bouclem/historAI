@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McCulloch & Pitts Neuron — historAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="../index.html" class="logo">histor<span>AI</span></a>
+        <ul>
+            <li><a href="../index.html">Timeline</a></li>
+            <li><a href="../explore.html">Explore Architectures</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="arch-header">
+    <div class="container">
+        <div class="breadcrumb"><a href="../index.html">← Back to Timeline</a></div>
+        <h1>McCulloch & Pitts Neuron</h1>
+        <div class="meta">
+            <span>📅 1943</span>
+            <span>👤 Warren McCulloch & Walter Pitts</span>
+            <span>📍 University of Illinois / MIT</span>
+            <span>🏷️ Theoretical Model</span>
+        </div>
+    </div>
+</header>
+
+<section class="container section">
+    <h2>Overview</h2>
+    <p>
+        In 1943, Warren McCulloch (a neurophysiologist) and Walter Pitts (a logician) published
+        "A Logical Calculus of the Ideas Immanent in Nervous Activity" — a paper that would
+        become the theoretical foundation of all neural networks.
+    </p>
+    <p>
+        They proposed a simple model: a neuron fires if the sum of its inputs exceeds a threshold.
+        By connecting these threshold units, they showed that networks of artificial neurons can
+        implement any Boolean function — AND, OR, NOT, XOR. This was the first proof that
+        neuron-like elements can perform computation.
+    </p>
+    <p>
+        Their model was inspired by Turing's work on computation and by the structure of biological
+        neurons. Though they didn't implement a learning algorithm (the McCulloch-Pitts neuron has
+        fixed weights), their insight that neurons can compute logical functions directly inspired
+        Rosenblatt's perceptron 14 years later.
+    </p>
+</section>
+
+<section class="container section">
+    <h2>The Model</h2>
+    <p>A McCulloch-Pitts neuron takes binary inputs and produces a binary output:</p>
+    <p style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent); padding-left: var(--space-sm);">
+        y = 1 if Σ(x_i · w_i) ≥ θ, else 0
+    </p>
+    <p>
+        Where w_i are fixed weights (1 for excitatory, -1 for inhibitory) and θ is the threshold.
+        The neuron fires when the weighted sum of inputs reaches the threshold.
+    </p>
+</section>
+
+<section class="container related">
+    <h2>Related</h2>
+    <div class="related-grid">
+        <a href="perceptron.html" class="related-card">
+            <div class="card-title">Perceptron (1957)</div>
+            <div class="card-desc">Rosenblatt extended the McCulloch-Pitts neuron with learning.</div>
+        </a>
+        <a href="dartmouth.html" class="related-card">
+            <div class="card-title">Dartmouth Conference (1956)</div>
+            <div class="card-desc">The workshop that launched AI as a field.</div>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>historAI — The history of artificial intelligence, remade from scratch.</p>
+    </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
