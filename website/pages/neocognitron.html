@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neocognitron — historAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="../index.html" class="logo">histor<span>AI</span></a>
+        <ul>
+            <li><a href="../index.html">Timeline</a></li>
+            <li><a href="../explore.html">Explore Architectures</a></li>
+            <li><a href="../benchmarks.html">Benchmarks</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="arch-header">
+    <div class="container">
+        <div class="breadcrumb"><a href="../index.html">← Back to Timeline</a></div>
+        <h1>Neocognitron</h1>
+        <div class="meta">
+            <span>📅 1979</span>
+            <span>👤 Kunihiko Fukushima</span>
+            <span>🏷️ Real History</span>
+        </div>
+    </div>
+</header>
+
+<section class="container section">
+    <h2>Overview</h2>
+    <p>
+        The Neocognitron is a hierarchical neural network inspired by the
+        visual cortex, published by Kunihiko Fukushima in 1979. It introduced
+        two concepts that would become foundational to modern deep learning:
+    </p>
+    <p>
+        <strong>Simple cells (S-cells)</strong> — feature detectors with local
+        receptive fields, each looking at a small region of the input. This is
+        the same idea as convolutional kernels in modern CNNs.
+    </p>
+    <p>
+        <strong>Complex cells (C-cells)</strong> — spatial pooling units that
+        average over nearby S-cells, providing tolerance to shifts and
+        deformations. This is the ancestor of max-pooling and average-pooling
+        in modern networks.
+    </p>
+    <p>
+        The architecture alternates S-layers and C-layers in a hierarchy:
+        S1 → C1 → S2 → C2 → output. Each layer extracts increasingly abstract
+        features. This is the exact structure of modern CNNs — convolution
+        followed by pooling, repeated in stages.
+    </p>
+    <p>
+        The Neocognitron predates LeCun's LeNet (1989) by a full decade. Yet
+        it was largely ignored outside Japan, in part because it was published
+        during the first AI winter when neural network research was unfunded
+        and unpopular. The ideas would be rediscovered independently by LeCun
+        in the context of handwritten digit recognition.
+    </p>
+    <p>
+        <strong>Benchmark results:</strong> The Neocognitron struggles on
+        tabular data (50% accuracy across most datasets) because its
+        architecture is designed for spatial/image data — the convolution
+        and pooling operations assume 2D spatial structure. On low-dimensional
+        tabular features, the receptive fields have little spatial meaning.
+        This is not a flaw of the architecture but a mismatch between the
+        architecture's purpose (visual pattern recognition) and the benchmark
+        datasets (tabular classification).
+    </p>
+</section>
+
+<section class="container code-section" id="code-block" data-md-source="../architecture/neocognitron.md">
+    <h2>Source Code — From Scratch</h2>
+    <p>Our from-scratch implementation of the Neocognitron in Python.</p>
+    <div class="code-container">
+        <div class="code-header">
+            <span class="filename">neocognitron.py</span>
+            <span class="lang-badge">Python</span>
+        </div>
+        <div class="code-content">
+            <!-- Code loaded by script.js -->
+        </div>
+    </div>
+</section>
+
+<section class="container related">
+    <h2>Related</h2>
+    <div class="related-grid">
+        <a href="perceptron.html" class="related-card">
+            <div class="card-title">Perceptron (1957)</div>
+            <div class="card-desc">The Neocognitron builds on perceptron-like units but adds hierarchy and spatial structure.</div>
+        </a>
+        <a href="multi-layer-perceptron.html" class="related-card">
+            <div class="card-title">Multi-Layer Perceptron (1986)</div>
+            <div class="card-desc">Both use hierarchical feature extraction, but the Neocognitron adds convolution and pooling.</div>
+        </a>
+        <a href="ai-winter-1.html" class="related-card">
+            <div class="card-title">First AI Winter (1974–1980)</div>
+            <div class="card-desc">The Neocognitron was published during this period of reduced funding and interest in neural networks.</div>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>historAI — The history of artificial intelligence, remade from scratch.</p>
+    </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

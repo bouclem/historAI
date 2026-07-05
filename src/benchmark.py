@@ -69,6 +69,30 @@ _rmlp_module = importlib.util.module_from_spec(_rmlp_spec)
 _rmlp_spec.loader.exec_module(_rmlp_module)
 RecursiveMLP = _rmlp_module.RecursiveMLP
 
+_neo_spec = importlib.util.spec_from_file_location(
+    "neocognitron",
+    Path(__file__).parent / "neocognitron" / "neocognitron.py",
+)
+_neo_module = importlib.util.module_from_spec(_neo_spec)
+_neo_spec.loader.exec_module(_neo_module)
+Neocognitron = _neo_module.Neocognitron
+
+_hop_spec = importlib.util.spec_from_file_location(
+    "hopfield_network",
+    Path(__file__).parent / "hopfield-network" / "hopfield_network.py",
+)
+_hop_module = importlib.util.module_from_spec(_hop_spec)
+_hop_spec.loader.exec_module(_hop_module)
+HopfieldNetwork = _hop_module.HopfieldNetwork
+
+_boltz_spec = importlib.util.spec_from_file_location(
+    "boltzmann_machine",
+    Path(__file__).parent / "boltzmann-machine" / "boltzmann_machine.py",
+)
+_boltz_module = importlib.util.module_from_spec(_boltz_spec)
+_boltz_spec.loader.exec_module(_boltz_module)
+BoltzmannMachine = _boltz_module.BoltzmannMachine
+
 
 # --- Dataset generators ---
 
@@ -215,6 +239,21 @@ ARCHITECTURES = [
         "name": "Recursive MLP",
         "class": RecursiveMLP,
         "color": "#66bb6a",
+    },
+    {
+        "name": "Neocognitron",
+        "class": Neocognitron,
+        "color": "#ec407a",
+    },
+    {
+        "name": "Hopfield Network",
+        "class": HopfieldNetwork,
+        "color": "#7e57c2",
+    },
+    {
+        "name": "Boltzmann Machine",
+        "class": BoltzmannMachine,
+        "color": "#ffa726",
     },
 ]
 

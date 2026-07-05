@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boltzmann Machine — historAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="../index.html" class="logo">histor<span>AI</span></a>
+        <ul>
+            <li><a href="../index.html">Timeline</a></li>
+            <li><a href="../explore.html">Explore Architectures</a></li>
+            <li><a href="../benchmarks.html">Benchmarks</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="arch-header">
+    <div class="container">
+        <div class="breadcrumb"><a href="../index.html">← Back to Timeline</a></div>
+        <h1>Boltzmann Machine</h1>
+        <div class="meta">
+            <span>📅 1985</span>
+            <span>👤 Ackley, Hinton & Sejnowski</span>
+            <span>🏷️ Real History</span>
+        </div>
+    </div>
+</header>
+
+<section class="container section">
+    <h2>Overview</h2>
+    <p>
+        The Boltzmann Machine is a stochastic neural network with visible
+        and hidden units, symmetric connections, and an energy function
+        inspired by statistical physics. Published by Ackley, Hinton, and
+        Sejnowski in 1985, it extends the Hopfield Network's energy-based
+        approach with hidden units and probabilistic (Bernoulli) neurons.
+    </p>
+    <p>
+        Each unit is binary (0 or 1) and turns on with probability:
+    </p>
+    <p style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent); padding-left: var(--space-sm);">
+        P(unit_i = 1) = sigmoid(Σ_j W_ij · unit_j + b_i)
+    </p>
+    <p>
+        Training uses <strong>Contrastive Divergence (CD-1)</strong> — a
+        simplified approximation of maximum likelihood learning. The network
+        alternates between a "positive phase" (clamping visible units to real
+        data and sampling hidden units) and a "negative phase" (free-running
+        Gibbs sampling to generate fantasy data). The weight update is the
+        difference between positive and negative associations.
+    </p>
+    <p>
+        For classification, we train the BM as an unsupervised feature
+        extractor, then train a linear classifier on the learned hidden
+        representations — the same strategy later used in Deep Belief
+        Networks (2006).
+    </p>
+    <p>
+        The Boltzmann Machine is the direct ancestor of Restricted Boltzmann
+        Machines (RBMs), Deep Belief Networks, and modern energy-based models.
+    </p>
+    <p>
+        <strong>Benchmark results:</strong> The Boltzmann Machine is surprisingly
+        strong — it matches the perceptron at 100% on linearly separable data,
+        high-dimensional data (10D), and large-scale data (1000 samples).
+        On noisy data it achieves 59.4% (vs 82% for perceptron) — the
+        binarization of inputs loses information. On non-linear datasets
+        (circles, XOR) it hovers around 50%. The stochastic training is
+        slower than deterministic methods but the learned features are
+        robust.
+    </p>
+</section>
+
+<section class="container code-section" id="code-block" data-md-source="../architecture/boltzmann-machine.md">
+    <h2>Source Code — From Scratch</h2>
+    <p>Our from-scratch implementation of the Boltzmann Machine in Python.</p>
+    <div class="code-container">
+        <div class="code-header">
+            <span class="filename">boltzmann_machine.py</span>
+            <span class="lang-badge">Python</span>
+        </div>
+        <div class="code-content">
+            <!-- Code loaded by script.js -->
+        </div>
+    </div>
+</section>
+
+<section class="container related">
+    <h2>Related</h2>
+    <div class="related-grid">
+        <a href="hopfield-network.html" class="related-card">
+            <div class="card-title">Hopfield Network (1982)</div>
+            <div class="card-desc">The Boltzmann Machine extends Hopfield's energy function with hidden units and stochastic sampling.</div>
+        </a>
+        <a href="multi-layer-perceptron.html" class="related-card">
+            <div class="card-title">Multi-Layer Perceptron (1986)</div>
+            <div class="card-desc">Both use hidden layers, but the BM trains them generatively (unsupervised) rather than discriminatively.</div>
+        </a>
+        <a href="perceptron.html" class="related-card">
+            <div class="card-title">Perceptron (1957)</div>
+            <div class="card-desc">The BM's linear classifier on learned features is essentially a perceptron operating in feature space.</div>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>historAI — The history of artificial intelligence, remade from scratch.</p>
+    </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

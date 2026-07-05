@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hopfield Network — historAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="../index.html" class="logo">histor<span>AI</span></a>
+        <ul>
+            <li><a href="../index.html">Timeline</a></li>
+            <li><a href="../explore.html">Explore Architectures</a></li>
+            <li><a href="../benchmarks.html">Benchmarks</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="arch-header">
+    <div class="container">
+        <div class="breadcrumb"><a href="../index.html">← Back to Timeline</a></div>
+        <h1>Hopfield Network</h1>
+        <div class="meta">
+            <span>📅 1982</span>
+            <span>👤 John Hopfield</span>
+            <span>🏷️ Real History</span>
+        </div>
+    </div>
+</header>
+
+<section class="container section">
+    <h2>Overview</h2>
+    <p>
+        The Hopfield Network is a recurrent neural network with symmetric
+        weights that stores patterns as attractors — local minima of an
+        energy function. Published by John Hopfield in 1982, this paper
+        is widely credited with reviving interest in neural networks by
+        connecting them to physics (spin glasses, Ising models).
+    </p>
+    <p>
+        The key insight is that a network with symmetric weights and
+        asynchronous updates will always converge to a stable state —
+        a local minimum of the energy function:
+    </p>
+    <p style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent); padding-left: var(--space-sm);">
+        E = -0.5 · Σ_ij W_ij · s_i · s_j
+    </p>
+    <p>
+        Patterns are stored using Hebbian learning — the weight matrix is
+        the sum of outer products of the stored patterns. When a noisy or
+        partial pattern is presented, the network converges to the nearest
+        stored pattern, acting as an associative memory or content-addressable
+        memory.
+    </p>
+    <p>
+        For classification, we store one prototype pattern per class and
+        classify by finding which stored pattern the input converges to
+        (minimum Hamming distance after recall).
+    </p>
+    <p>
+        <strong>Benchmark results:</strong> The Hopfield Network achieves
+        100% accuracy on high-dimensional data (10 features) — its sweet
+        spot, where the binary pattern space is rich enough for distinct
+        prototypes. On low-dimensional data (2 features), it hovers around
+        50–54% because the bipolar binarization loses too much information.
+        The network is extremely fast (one-shot learning, ~1ms) but limited
+        by its capacity: the number of patterns it can reliably store is
+        approximately 0.14 × n_features.
+    </p>
+</section>
+
+<section class="container code-section" id="code-block" data-md-source="../architecture/hopfield-network.md">
+    <h2>Source Code — From Scratch</h2>
+    <p>Our from-scratch implementation of the Hopfield Network in Python.</p>
+    <div class="code-container">
+        <div class="code-header">
+            <span class="filename">hopfield_network.py</span>
+            <span class="lang-badge">Python</span>
+        </div>
+        <div class="code-content">
+            <!-- Code loaded by script.js -->
+        </div>
+    </div>
+</section>
+
+<section class="container related">
+    <h2>Related</h2>
+    <div class="related-grid">
+        <a href="perceptron.html" class="related-card">
+            <div class="card-title">Perceptron (1957)</div>
+            <div class="card-desc">Both use simple binary neurons, but the Hopfield Network adds recurrent symmetric connections.</div>
+        </a>
+        <a href="boltzmann-machine.html" class="related-card">
+            <div class="card-title">Boltzmann Machine (1985)</div>
+            <div class="card-desc">Extends the Hopfield energy function idea with hidden units and stochastic units.</div>
+        </a>
+        <a href="multi-layer-perceptron.html" class="related-card">
+            <div class="card-title">Multi-Layer Perceptron (1986)</div>
+            <div class="card-desc">The Hopfield Network's revival of neural network interest paved the way for the MLP comeback.</div>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>historAI — The history of artificial intelligence, remade from scratch.</p>
+    </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
