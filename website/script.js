@@ -55,24 +55,14 @@ async function loadCodeBlock(mdPath, targetId) {
     }
 }
 
-/* --- Minimal Python syntax highlighting --- */
+/* --- Minimal Python syntax highlighting (single-pass tokenizer) --- */
 function highlightPython(code) {
     // Escape HTML first
-    let html = code
+    const escaped = code
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;");
 
-    // Comments (triple-quoted strings and # comments)
-    html = html.replace(/(#[^\n]*)/g, '<span class="cmt">$1</span>');
-
-    // Triple-quoted strings
-    html = html.replace(/("""[\s\S]*?""")/g, '<span class="str">$1</span>');
-
-    // Single/double quoted strings (not inside HTML tag attributes)
-    html = html.replace(/(?<![=>])("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')/g, '<span class="str">$1</span>');
-
-    // Keywords
     const keywords = [
         "def", "class", "import", "from", "return", "if", "else", "elif",
         "for", "while", "in", "not", "and", "or", "is", "None", "True",
@@ -81,14 +71,40 @@ function highlightPython(code) {
         "assert", "del", "async", "await"
     ];
     const kwPattern = new RegExp(`\\b(${keywords.join("|")})\\b`, "g");
-    html = html.replace(kwPattern, '<span class="kw">$1</span>');
 
-    // Numbers
-    html = html.replace(/\b(\d+\.?\d*)\b/g, '<span class="num">$1</span>');
+    // Single pass: match strings and comments first, highlight code between them
+    const tokenRegex = /("""[\s\S]*?""")|("(?:[^"\\]|\\.)*")|('(?:[^'\\]|\\.)*')|(#[^\n]*)/g;
 
-    // Function calls — word followed by (
-    html = html.replace(/\b([a-z_][a-z_0-9]*)\(/gi, '<span class="fn">$1</span>(');
+    let result = "";
+    let lastIndex = 0;
+    let match;
 
+    while ((match = tokenRegex.exec(escaped)) !== null) {
+        // Highlight the code between the last token and this one
+        const between = escaped.slice(lastIndex, match.index);
+        result += highlightKeywords(between, kwPattern);
+
+        // Wrap the token in a span
+        if (match[4]) {
+            result += `<span class="cmt">${match[0]}</span>`;
+        } else {
+            result += `<span class="str">${match[0]}</span>`;
+        }
+
+        lastIndex = tokenRegex.lastIndex;
+    }
+
+    // Highlight remaining code after the last token
+    result += highlightKeywords(escaped.slice(lastIndex), kwPattern);
+
+    return result;
+}
+
+function highlightKeywords(text, kwPattern) {
+    let html = text
+        .replace(kwPattern, '<span class="kw">$1</span>')
+        .replace(/\b(\d+\.?\d*)\b/g, '<span class="num">$1</span>')
+        .replace(/\b([a-z_][a-z_0-9]*)\(/gi, '<span class="fn">$1</span>(');
     return html;
 }
 
