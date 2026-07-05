@@ -45,6 +45,14 @@ _mtp_module = importlib.util.module_from_spec(_mtp_spec)
 _mtp_spec.loader.exec_module(_mtp_module)
 MultiThresholdPerceptron = _mtp_module.MultiThresholdPerceptron
 
+_mlp_spec = importlib.util.spec_from_file_location(
+    "multi_layer_perceptron",
+    Path(__file__).parent / "multi-layer-perceptron" / "multi_layer_perceptron.py",
+)
+_mlp_module = importlib.util.module_from_spec(_mlp_spec)
+_mlp_spec.loader.exec_module(_mlp_module)
+MultiLayerPerceptron = _mlp_module.MultiLayerPerceptron
+
 
 # --- Dataset generators ---
 
@@ -176,6 +184,11 @@ ARCHITECTURES = [
         "name": "Multi-Threshold Perceptron",
         "class": MultiThresholdPerceptron,
         "color": "#b388ff",
+    },
+    {
+        "name": "Multi-Layer Perceptron",
+        "class": MultiLayerPerceptron,
+        "color": "#26c6da",
     },
 ]
 

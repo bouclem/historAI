@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Layer Perceptron — historAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="../index.html" class="logo">histor<span>AI</span></a>
+        <ul>
+            <li><a href="../index.html">Timeline</a></li>
+            <li><a href="../explore.html">Explore Architectures</a></li>
+            <li><a href="../benchmarks.html">Benchmarks</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="arch-header">
+    <div class="container">
+        <div class="breadcrumb"><a href="../index.html">← Back to Timeline</a></div>
+        <h1>Multi-Layer Perceptron</h1>
+        <div class="meta">
+            <span>📅 1986</span>
+            <span>👤 Rumelhart, Hinton & Williams</span>
+            <span>🏷️ Real History</span>
+        </div>
+    </div>
+</header>
+
+<section class="container section">
+    <h2>Overview</h2>
+    <p>
+        In 1986, David Rumelhart, Geoffrey Hinton, and Ronald Williams published
+        "Learning representations by back-propagating errors" in <em>Nature</em> — the
+        paper that popularized backpropagation and made training multi-layer networks
+        practical. This solved the fundamental problem that had held neural networks
+        back since Minsky and Papert's 1969 critique: how to train hidden layers when
+        you can't directly observe their errors.
+    </p>
+    <p>
+        This MLP uses one hidden layer with sigmoid activation and trains via
+        backpropagation — gradient descent through the hidden layer. The architecture is:
+    </p>
+    <p style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent); padding-left: var(--space-sm);">
+        Input (n_features) → Hidden (n_hidden) → Output (1)
+    </p>
+    <p>
+        The forward pass computes:
+    </p>
+    <p style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent); padding-left: var(--space-sm);">
+        hidden = sigmoid(X · W1 + b1)
+    </p>
+    <p style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent); padding-left: var(--space-sm);">
+        output = sigmoid(hidden · W2 + b2)
+    </p>
+    <p>
+        The backward pass propagates the error gradient back through the network:
+    </p>
+    <p style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent); padding-left: var(--space-sm);">
+        δ_output = (y − output) · σ'(output)
+    </p>
+    <p style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent); padding-left: var(--space-sm);">
+        δ_hidden = (δ_output · W2ᵀ) · σ'(hidden)
+    </p>
+    <p>
+        The hidden layer's non-linear activation is the key — without it, no matter how
+        many layers you stack, the network remains a linear classifier. With it, the MLP
+        can approximate any continuous function (universal approximation theorem).
+    </p>
+    <p>
+        <strong>Benchmark results:</strong> The MLP outperforms the standard perceptron.
+        On linearly separable datasets, both achieve 100% accuracy. On non-linearly
+        separable datasets — where the perceptron fails completely — the MLP achieves
+        measurable improvement: 57.5% vs 48.0% on Extended XOR, 56.0% vs 54.5% on
+        concentric circles, 82.5% vs 82.0% on noisy linear data. With more training
+        epochs or a larger hidden layer, the gap would widen further. This is the
+        fundamental advantage that made deep learning possible.
+    </p>
+</section>
+
+<section class="container code-section" id="code-block" data-md-source="../architecture/multi-layer-perceptron.md">
+    <h2>Source Code — From Scratch</h2>
+    <p>Our from-scratch implementation of the multi-layer perceptron in Python.</p>
+    <div class="code-container">
+        <div class="code-header">
+            <span class="filename">multi_layer_perceptron.py</span>
+            <span class="lang-badge">Python</span>
+        </div>
+        <div class="code-content">
+            <!-- Code loaded by script.js -->
+        </div>
+    </div>
+</section>
+
+<section class="container related">
+    <h2>Related</h2>
+    <div class="related-grid">
+        <a href="perceptron.html" class="related-card">
+            <div class="card-title">Perceptron (1957)</div>
+            <div class="card-desc">The single-layer predecessor — cannot learn non-linear patterns.</div>
+        </a>
+        <a href="principles-of-neurodynamics.html" class="related-card">
+            <div class="card-title">Principles of Neurodynamics (1962)</div>
+            <div class="card-desc">Rosenblatt's book described multi-layer perceptrons in theory — but had no training algorithm.</div>
+        </a>
+        <a href="minsky-papert.html" class="related-card">
+            <div class="card-title">Minsky & Papert (1969)</div>
+            <div class="card-desc">The critique that froze neural networks — an MLP with backprop could have answered it.</div>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>historAI — The history of artificial intelligence, remade from scratch.</p>
+    </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
