@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Trained Perceptron — historAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="../index.html" class="logo">histor<span>AI</span></a>
+        <ul>
+            <li><a href="../index.html">Timeline</a></li>
+            <li><a href="../explore.html">Explore Architectures</a></li>
+            <li><a href="../benchmarks.html">Benchmarks</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="arch-header">
+    <div class="container">
+        <div class="breadcrumb"><a href="../index.html">← Back to Timeline</a></div>
+        <h1>Pre-Trained Perceptron</h1>
+        <div class="meta">
+            <span>📅 1974</span>
+            <span>👤 historAI Project</span>
+            <span>🏷️ Divergence — Neutral</span>
+        </div>
+    </div>
+</header>
+
+<section class="container section">
+    <h2>Overview</h2>
+    <p>
+        The Pre-Trained Perceptron is a divergence architecture — transfer learning,
+        decades before the concept had a name. The standard perceptron initializes
+        weights to zero and learns from scratch. This variant starts with weights
+        learned on a previous (source) task and fine-tunes them on the target task.
+    </p>
+    <p>
+        The intuition is simple: if the source and target tasks share structure —
+        similar features, related decision boundaries — the pre-trained weights
+        provide a better starting point than zeros. Fewer updates are needed,
+        leading to faster convergence. When the tasks are unrelated, the pre-trained
+        weights can be worse than random initialization, and the perceptron must
+        "unlearn" before it can learn.
+    </p>
+    <p>
+        The learning rule is identical to the standard perceptron:
+    </p>
+    <p style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent); padding-left: var(--space-sm);">
+        w_i(t+1) = w_i(t) + r · (d_j − y_j) · x_j,i
+    </p>
+    <p>
+        The only difference is the initial condition: <code>w(0) = w_pretrained</code>
+        instead of <code>w(0) = 0</code>.
+    </p>
+    <p>
+        This could have been explored in 1974, during the AI winter, when researchers
+        were looking for ways to make perceptrons more efficient with limited compute.
+        Transfer learning wasn't formally studied until the 1990s, and pre-training
+        became prominent with deep belief networks in 2006.
+    </p>
+    <p>
+        <strong>Benchmark results:</strong> The pre-trained perceptron matches the
+        standard perceptron on accuracy across all datasets. Its advantage is in
+        convergence speed: on linearly separable data, it converges in 1 epoch
+        instead of 2 — the pre-trained weights are already close to a good solution.
+        On non-linearly separable datasets, it shows a marginal improvement on
+        Extended XOR (50.5% vs 48.0%). The divergence status is <strong>Neutral</strong>:
+        same accuracy, faster convergence — a real but modest benefit.
+    </p>
+</section>
+
+<section class="container code-section" id="code-block" data-md-source="../architecture/pre-trained-perceptron.md">
+    <h2>Source Code — From Scratch</h2>
+    <p>Our from-scratch implementation of the pre-trained perceptron in Python.</p>
+    <div class="code-container">
+        <div class="code-header">
+            <span class="filename">pre_trained_perceptron.py</span>
+            <span class="lang-badge">Python</span>
+        </div>
+        <div class="code-content">
+            <!-- Code loaded by script.js -->
+        </div>
+    </div>
+</section>
+
+<section class="container related">
+    <h2>Related</h2>
+    <div class="related-grid">
+        <a href="perceptron.html" class="related-card">
+            <div class="card-title">Perceptron (1957)</div>
+            <div class="card-desc">The base architecture — learns from scratch with zero-initialized weights.</div>
+        </a>
+        <a href="multi-layer-perceptron.html" class="related-card">
+            <div class="card-title">Multi-Layer Perceptron (1986)</div>
+            <div class="card-desc">Backpropagation made hidden layers trainable — pre-training later became key for deep networks.</div>
+        </a>
+        <a href="minsky-papert.html" class="related-card">
+            <div class="card-title">Minsky & Papert (1969)</div>
+            <div class="card-desc">The critique that froze the field — transfer learning could have been a response.</div>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>historAI — The history of artificial intelligence, remade from scratch.</p>
+    </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

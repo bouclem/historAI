@@ -53,6 +53,14 @@ _mlp_module = importlib.util.module_from_spec(_mlp_spec)
 _mlp_spec.loader.exec_module(_mlp_module)
 MultiLayerPerceptron = _mlp_module.MultiLayerPerceptron
 
+_ptp_spec = importlib.util.spec_from_file_location(
+    "pre_trained_perceptron",
+    Path(__file__).parent / "pre-trained-perceptron" / "pre_trained_perceptron.py",
+)
+_ptp_module = importlib.util.module_from_spec(_ptp_spec)
+_ptp_spec.loader.exec_module(_ptp_module)
+PreTrainedPerceptron = _ptp_module.PreTrainedPerceptron
+
 
 # --- Dataset generators ---
 
@@ -189,6 +197,11 @@ ARCHITECTURES = [
         "name": "Multi-Layer Perceptron",
         "class": MultiLayerPerceptron,
         "color": "#26c6da",
+    },
+    {
+        "name": "Pre-Trained Perceptron",
+        "class": PreTrainedPerceptron,
+        "color": "#ff8a65",
     },
 ]
 
