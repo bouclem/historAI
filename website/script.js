@@ -25,6 +25,30 @@ async function loadCodeBlock(mdPath, targetId) {
         const pre = document.createElement("pre");
         pre.innerHTML = highlighted;
         container.querySelector(".code-content").appendChild(pre);
+
+        // Add copy button to code header
+        const header = container.querySelector(".code-header");
+        if (header) {
+            const copyBtn = document.createElement("button");
+            copyBtn.className = "copy-btn";
+            copyBtn.textContent = "Copy";
+            copyBtn.addEventListener("click", () => {
+                navigator.clipboard.writeText(rawCode).then(() => {
+                    copyBtn.textContent = "Copied!";
+                    copyBtn.classList.add("copied");
+                    setTimeout(() => {
+                        copyBtn.textContent = "Copy";
+                        copyBtn.classList.remove("copied");
+                    }, 2000);
+                }).catch(() => {
+                    copyBtn.textContent = "Failed";
+                    setTimeout(() => {
+                        copyBtn.textContent = "Copy";
+                    }, 2000);
+                });
+            });
+            header.appendChild(copyBtn);
+        }
     } catch (err) {
         container.querySelector(".code-content").innerHTML =
             `<p style="color: var(--text-muted); font-family: var(--font-mono); font-size: 0.85rem;">// Failed to load source code: ${err.message}</p>`;
@@ -45,8 +69,8 @@ function highlightPython(code) {
     // Triple-quoted strings
     html = html.replace(/("""[\s\S]*?""")/g, '<span class="str">$1</span>');
 
-    // Single/double quoted strings (not inside tags)
-    html = html.replace(/(?<!>)("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')/g, '<span class="str">$1</span>');
+    // Single/double quoted strings (not inside HTML tag attributes)
+    html = html.replace(/(?<![=>])("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')/g, '<span class="str">$1</span>');
 
     // Keywords
     const keywords = [

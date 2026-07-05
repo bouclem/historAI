@@ -425,6 +425,29 @@ a.timeline-entry:hover .title {
     color: var(--text-secondary);
 }
 
+.copy-btn {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: auto;
+}
+
+.copy-btn:hover {
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+}
+
+.copy-btn.copied {
+    border-color: var(--color-better);
+    color: var(--color-better);
+}
+
 .code-content {
     padding: var(--space-sm);
     overflow-x: auto;
