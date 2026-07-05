@@ -20,7 +20,7 @@
     --color-worse: oklch(0.62 0.18 25);       /* Red — worse than real */
     --color-better: oklch(0.68 0.16 145);     /* Green — better than real */
     --color-untested: oklch(0.70 0.13 75);    /* Amber — divergence, untested */
-    --color-neutral: oklch(0.60 0.010 260);   /* Gray — no change, neutral */
+    --color-neutral: oklch(0.68 0.05 300);    /* Lavender — no change, neutral */
 
     /* Accents */
     --accent: oklch(0.70 0.12 240);
@@ -307,9 +307,9 @@ a.timeline-entry:hover .title {
 }
 
 .timeline-entry.neutral .tag {
-    background: oklch(0.60 0.010 260 / 0.15);
+    background: oklch(0.68 0.05 300 / 0.15);
     color: var(--color-neutral);
-    border: 1px solid oklch(0.60 0.010 260 / 0.3);
+    border: 1px solid oklch(0.68 0.05 300 / 0.3);
 }
 
 /* --- Architecture Page --- */
