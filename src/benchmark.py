@@ -61,6 +61,14 @@ _ptp_module = importlib.util.module_from_spec(_ptp_spec)
 _ptp_spec.loader.exec_module(_ptp_module)
 PreTrainedPerceptron = _ptp_module.PreTrainedPerceptron
 
+_rmlp_spec = importlib.util.spec_from_file_location(
+    "recursive_mlp",
+    Path(__file__).parent / "recursive-mlp" / "recursive_mlp.py",
+)
+_rmlp_module = importlib.util.module_from_spec(_rmlp_spec)
+_rmlp_spec.loader.exec_module(_rmlp_module)
+RecursiveMLP = _rmlp_module.RecursiveMLP
+
 
 # --- Dataset generators ---
 
@@ -202,6 +210,11 @@ ARCHITECTURES = [
         "name": "Pre-Trained Perceptron",
         "class": PreTrainedPerceptron,
         "color": "#ff8a65",
+    },
+    {
+        "name": "Recursive MLP",
+        "class": RecursiveMLP,
+        "color": "#66bb6a",
     },
 ]
 
