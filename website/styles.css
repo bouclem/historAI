@@ -20,6 +20,7 @@
     --color-worse: oklch(0.62 0.18 25);       /* Red — worse than real */
     --color-better: oklch(0.68 0.16 145);     /* Green — better than real */
     --color-untested: oklch(0.70 0.13 75);    /* Amber — divergence, untested */
+    --color-neutral: oklch(0.60 0.010 260);   /* Gray — no change, neutral */
 
     /* Accents */
     --accent: oklch(0.70 0.12 240);
@@ -190,6 +191,7 @@ nav ul a:hover {
 .legend-dot.worse { background: var(--color-worse); }
 .legend-dot.better { background: var(--color-better); }
 .legend-dot.untested { background: var(--color-untested); }
+.legend-dot.neutral { background: var(--color-neutral); }
 
 /* --- Timeline --- */
 .timeline {
@@ -245,6 +247,7 @@ a.timeline-entry:hover .title {
 .timeline-entry.worse::before { background: var(--color-worse); }
 .timeline-entry.better::before { background: var(--color-better); }
 .timeline-entry.untested::before { background: var(--color-untested); }
+.timeline-entry.neutral::before { background: var(--color-neutral); }
 
 .timeline-entry .year {
     font-family: var(--font-mono);
@@ -301,6 +304,12 @@ a.timeline-entry:hover .title {
     background: oklch(0.70 0.13 75 / 0.15);
     color: var(--color-untested);
     border: 1px solid oklch(0.70 0.13 75 / 0.3);
+}
+
+.timeline-entry.neutral .tag {
+    background: oklch(0.60 0.010 260 / 0.15);
+    color: var(--color-neutral);
+    border: 1px solid oklch(0.60 0.010 260 / 0.3);
 }
 
 /* --- Architecture Page --- */
@@ -570,6 +579,7 @@ footer p {
 .filter-btn .dot.worse { background: var(--color-worse); }
 .filter-btn .dot.better { background: var(--color-better); }
 .filter-btn .dot.untested { background: var(--color-untested); }
+.filter-btn .dot.neutral { background: var(--color-neutral); }
 
 /* --- Responsive --- */
 @media (max-width: 640px) {
