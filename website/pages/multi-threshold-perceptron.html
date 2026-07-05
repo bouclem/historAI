@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Threshold Perceptron — historAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="../index.html" class="logo">histor<span>AI</span></a>
+        <ul>
+            <li><a href="../index.html">Timeline</a></li>
+            <li><a href="../explore.html">Explore Architectures</a></li>
+            <li><a href="../benchmarks.html">Benchmarks</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="arch-header">
+    <div class="container">
+        <div class="breadcrumb"><a href="../index.html">← Back to Timeline</a></div>
+        <h1>Multi-Threshold Perceptron</h1>
+        <div class="meta">
+            <span>📅 1958</span>
+            <span>👤 historAI Project</span>
+            <span>🏷️ Divergence — Worse</span>
+        </div>
+    </div>
+</header>
+
+<section class="container section">
+    <h2>Overview</h2>
+    <p>
+        The Multi-Threshold Perceptron is a divergence architecture — a model that could have
+        existed in 1958, right after Rosenblatt's perceptron, as a natural extension to multiple
+        thresholds.
+    </p>
+    <p>
+        The standard perceptron uses a single threshold: fire if the weighted sum reaches θ.
+        This model uses K thresholds θ₀ &lt; θ₁ &lt; ... &lt; θₖ₋₁, dividing the real line into
+        K+1 regions. The neuron fires in alternating regions — odd-indexed regions fire, even ones
+        don't. This creates a multi-step activation function that can, in principle, learn
+        non-linearly-separable patterns like XOR with a single neuron.
+    </p>
+    <p>
+        The learning rules:
+    </p>
+    <p style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent); padding-left: var(--space-sm);">
+        w_i(t+1) = w_i(t) + r · (d_j − y_j) · x_j,i
+    </p>
+    <p style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent); padding-left: var(--space-sm);">
+        θ_nearest += r · sign(z − θ_nearest) · |d_j − y_j|
+    </p>
+    <p>
+        When the neuron misclassifies, weights update as in the standard perceptron, and the
+        threshold nearest to the current linear output moves toward it — shrinking the region
+        that caused the error and expanding the adjacent region that would correct it.
+    </p>
+    <p>
+        <strong>Benchmark results:</strong> The multi-threshold approach performs worse than the
+        standard perceptron. On linearly separable datasets, the alternating firing regions break
+        the simple linear boundary — the neuron cannot settle on a single threshold that separates
+        the two classes. It achieves 100% accuracy only on high-dimensional data where the
+        thresholds collapse to a single effective boundary. On non-linearly separable datasets
+        (concentric circles, XOR), it performs no better than the standard perceptron — both fail.
+    </p>
+</section>
+
+<section class="container code-section" id="code-block" data-md-source="../architecture/multi-threshold-perceptron.md">
+    <h2>Source Code — From Scratch</h2>
+    <p>Our from-scratch implementation of the multi-threshold perceptron in Python.</p>
+    <div class="code-container">
+        <div class="code-header">
+            <span class="filename">multi_threshold_perceptron.py</span>
+            <span class="lang-badge">Python</span>
+        </div>
+        <div class="code-content">
+            <!-- Code loaded by script.js -->
+        </div>
+    </div>
+</section>
+
+<section class="container related">
+    <h2>Related</h2>
+    <div class="related-grid">
+        <a href="perceptron.html" class="related-card">
+            <div class="card-title">Perceptron (1957)</div>
+            <div class="card-desc">The real-history counterpart — single threshold, bias-based.</div>
+        </a>
+        <a href="adaptive-threshold-neuron.html" class="related-card">
+            <div class="card-title">Adaptive Threshold Neuron (1948)</div>
+            <div class="card-desc">Another threshold divergence — threshold as a learnable parameter.</div>
+        </a>
+        <a href="mcculloch-pitts.html" class="related-card">
+            <div class="card-title">McCulloch & Pitts Neuron (1943)</div>
+            <div class="card-desc">The original fixed-threshold neuron model.</div>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>historAI — The history of artificial intelligence, remade from scratch.</p>
+    </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

@@ -37,6 +37,14 @@ _atn_module = importlib.util.module_from_spec(_atn_spec)
 _atn_spec.loader.exec_module(_atn_module)
 AdaptiveThresholdNeuron = _atn_module.AdaptiveThresholdNeuron
 
+_mtp_spec = importlib.util.spec_from_file_location(
+    "multi_threshold_perceptron",
+    Path(__file__).parent / "multi-threshold-perceptron" / "multi_threshold_perceptron.py",
+)
+_mtp_module = importlib.util.module_from_spec(_mtp_spec)
+_mtp_spec.loader.exec_module(_mtp_module)
+MultiThresholdPerceptron = _mtp_module.MultiThresholdPerceptron
+
 
 # --- Dataset generators ---
 
@@ -163,6 +171,11 @@ ARCHITECTURES = [
         "name": "Adaptive Threshold Neuron",
         "class": AdaptiveThresholdNeuron,
         "color": "#f5a623",
+    },
+    {
+        "name": "Multi-Threshold Perceptron",
+        "class": MultiThresholdPerceptron,
+        "color": "#b388ff",
     },
 ]
 

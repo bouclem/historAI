@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turing Test — historAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="../index.html" class="logo">histor<span>AI</span></a>
+        <ul>
+            <li><a href="../index.html">Timeline</a></li>
+            <li><a href="../explore.html">Explore Architectures</a></li>
+            <li><a href="../benchmarks.html">Benchmarks</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="arch-header">
+    <div class="container">
+        <div class="breadcrumb"><a href="../index.html">← Back to Timeline</a></div>
+        <h1>Turing Test</h1>
+        <div class="meta">
+            <span>📅 1950</span>
+            <span>👤 Alan Turing</span>
+            <span>📍 University of Manchester</span>
+            <span>🏷️ Conceptual Framework</span>
+        </div>
+    </div>
+</header>
+
+<section class="container section">
+    <h2>Overview</h2>
+    <p>
+        In October 1950, Alan Turing published "Computing Machinery and Intelligence" in the
+        philosophy journal <em>Mind</em>. The paper opened with a direct question: "Can machines
+        think?" Rather than attempting to define "machine" and "think" — which Turing considered
+        "too meaningless to deserve discussion" — he proposed replacing the question with a
+        concrete, testable game: the Imitation Game.
+    </p>
+    <p>
+        The game involves three participants: a human interrogator, a human, and a machine.
+        The interrogator communicates with both through written text alone, knowing them only
+        as "X" and "Y." The machine's goal is to convince the interrogator that it is the human.
+        If the interrogator cannot reliably distinguish the machine from the human, Turing argued,
+        the machine can be said to "think."
+    </p>
+    <p>
+        Turing predicted that by the year 2000, computers with about 10⁹ bits of storage would
+        be programmed to play the Imitation Game well enough that "an average interrogator will
+        not have more than 70 percent chance of making the right identification after five minutes
+        of questioning." He further predicted that "one will be able to speak of machines thinking
+        without expecting to be contradicted."
+    </p>
+</section>
+
+<section class="container section">
+    <h2>The Imitation Game</h2>
+    <p>
+        Turing's original formulation was actually a gender test: a man (A) and a woman (B) are
+        questioned by an interrogator (C) who must determine which is the man and which is the
+        woman. The man's goal is to trick the interrogator; the woman's goal is to help. Turing
+        then asked: "What will happen when a machine takes the part of A in this game?"
+    </p>
+    <p>
+        The modern interpretation simplifies this: a human judge converses with a human and a
+        machine via text. If the judge cannot consistently tell which is which, the machine passes.
+        The restriction to text-only communication strips away surface cues — voice, appearance,
+        physical mannerisms — and isolates the question of whether the machine can produce
+        responses indistinguishable from a human's.
+    </p>
+    <p>
+        Turing addressed several anticipated objections in the paper — the theological objection
+        (only humans have souls), the "heads in the sand" objection (thinking machines would be
+        humiliating), the mathematical objection (Gödel's incompleteness), and the argument from
+        consciousness. He countered each with characteristic clarity and wit.
+    </p>
+</section>
+
+<section class="container section">
+    <h2>Legacy</h2>
+    <p>
+        The Turing Test became the most influential benchmark for machine intelligence for over
+        six decades. It gave the AI field a concrete goal: build a machine whose conversational
+        behavior is indistinguishable from a human's. This framing shaped early AI research,
+        from ELIZA (1966) to modern large language models.
+    </p>
+    <p>
+        The test has been criticized — most notably by philosopher John Searle (1980), whose
+        "Chinese Room" argument challenged whether passing the test proves understanding. Others
+        argued the test measures deception rather than intelligence. Yet the test's influence
+        persists: when a chatbot fools a human judge, it still makes headlines.
+    </p>
+    <p>
+        Turing's 1950 paper is remarkable not only for the test itself but for its prescience.
+        He anticipated learning machines, neural networks, and the idea that we might "let it
+        learn" rather than program intelligence directly — a vision that aligns closely with
+        modern machine learning.
+    </p>
+</section>
+
+<section class="container related">
+    <h2>Related</h2>
+    <div class="related-grid">
+        <a href="mcculloch-pitts.html" class="related-card">
+            <div class="card-title">McCulloch & Pitts Neuron (1943)</div>
+            <div class="card-desc">The neuron model inspired by Turing's earlier work on computation.</div>
+        </a>
+        <a href="dartmouth.html" class="related-card">
+            <div class="card-title">Dartmouth Conference (1956)</div>
+            <div class="card-desc">The event that launched AI as a field, building on Turing's vision.</div>
+        </a>
+        <a href="perceptron.html" class="related-card">
+            <div class="card-title">Perceptron (1957)</div>
+            <div class="card-desc">The first learning machine — a step toward Turing's prediction.</div>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>historAI — The history of artificial intelligence, remade from scratch.</p>
+    </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

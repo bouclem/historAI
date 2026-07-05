@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principles of Neurodynamics — historAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="../index.html" class="logo">histor<span>AI</span></a>
+        <ul>
+            <li><a href="../index.html">Timeline</a></li>
+            <li><a href="../explore.html">Explore Architectures</a></li>
+            <li><a href="../benchmarks.html">Benchmarks</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="arch-header">
+    <div class="container">
+        <div class="breadcrumb"><a href="../index.html">← Back to Timeline</a></div>
+        <h1>Principles of Neurodynamics</h1>
+        <div class="meta">
+            <span>📅 1962</span>
+            <span>👤 Frank Rosenblatt</span>
+            <span>📍 Cornell Aeronautical Laboratory</span>
+            <span>🏷️ Book</span>
+        </div>
+    </div>
+</header>
+
+<section class="container section">
+    <h2>Overview</h2>
+    <p>
+        In 1962, Frank Rosenblatt published "Principles of Neurodynamics: Perceptrons and the
+        Theory of Brain Mechanisms" — a 616-page magnum opus that compiled everything known about
+        perceptrons at the time. Published by Spartan Books, it remains the most comprehensive
+        treatment of perceptron theory ever written.
+    </p>
+    <p>
+        The book is structured in four parts. Part I reviews the background, methodology, and
+        physiological and psychological criteria for brain models. Part II (Chapters 5–14) deals
+        with the theory of three-layer series-coupled perceptrons — the most studied configuration.
+        Part III (Chapters 15–20) extends the theory to multi-layer and cross-coupled perceptrons.
+        Part IV explores speculative models and future directions.
+    </p>
+</section>
+
+<section class="container section">
+    <h2>Perceptron Variants</h2>
+    <p>
+        The book documents experiments with a remarkable range of perceptron architectures — far
+        beyond the simple single-layer model that most people associate with the word "perceptron"
+        today:
+    </p>
+    <p>
+        <strong>Cross-coupled perceptrons</strong> feature intra-layer connections with loops,
+        allowing association units to influence each other. <strong>Back-coupling</strong>
+        introduces feedback from later layers to earlier ones, creating recurrent dynamics.
+        <strong>Four-layer perceptrons</strong> with two adjustable layers form a proper multilayer
+        network — capable, in principle, of learning non-linearly-separable patterns like XOR.
+        <strong>Time-delay units</strong> process sequential data, an early precursor to recurrent
+        neural networks.
+    </p>
+    <p>
+        Rosenblatt also experimented with audio processing instead of images, using perceptrons
+        for phoneme recognition — a task that would not see serious progress for decades. The
+        Mark I Perceptron hardware, with its 20×20 photocell retina, was designed for image
+        recognition, but the book shows Rosenblatt's vision extended to speech, sequence
+        processing, and multi-layer architectures.
+    </p>
+</section>
+
+<section class="container section">
+    <h2>Theoretical Contributions</h2>
+    <p>
+        The book's theoretical core is the analysis of three-layer series-coupled perceptrons
+        (S → A → R topology). Rosenblatt proved several fundamental theorems, including the
+        perceptron convergence theorem — showing that if a solution exists, the error-correction
+        learning procedure will find it. The G-matrix and Q-functions introduced in the book
+        provided the mathematical tools for analyzing perceptron generalization and performance
+        variability.
+    </p>
+    <p>
+        The treatment of multi-layer and cross-coupled systems in Part III was less rigorous —
+        as Rosenblatt acknowledged, "the theory of perceptrons is not yet complete, and new
+        possibilities are continually coming to light." The lack of an effective training
+        algorithm for multilayer networks (backpropagation would not be popularized until 1986)
+        meant that many of the architectures described in the book could be analyzed but not
+        practically trained.
+    </p>
+</section>
+
+<section class="container section">
+    <h2>Legacy</h2>
+    <p>
+        "Principles of Neurodynamics" stands as a monument to what neural network research could
+        have become had the AI winter not intervened. Many of the architectures Rosenblatt
+        described — multi-layer networks, recurrent connections, sequential processing — would
+        not be seriously revisited until the 1980s and 1990s. The book's mathematical framework
+        for analyzing perceptron capabilities directly informed Minsky and Papert's 1969 critique,
+        which would ironically help freeze the field for over a decade.
+    </p>
+    <p>
+        Rosenblatt's final project, Tobermory — a 4-layer, 12,000-weight perceptron for speech
+        recognition — was never completed. He died in a boating accident in 1971, on his 43rd
+        birthday. By that time, digital simulation on general-purpose computers had surpassed
+        purpose-built perceptron hardware, and the field he helped create was entering hibernation.
+    </p>
+</section>
+
+<section class="container related">
+    <h2>Related</h2>
+    <div class="related-grid">
+        <a href="perceptron.html" class="related-card">
+            <div class="card-title">Perceptron (1957)</div>
+            <div class="card-desc">The architecture that "Principles of Neurodynamics" documents in full.</div>
+        </a>
+        <a href="minsky-papert.html" class="related-card">
+            <div class="card-title">Minsky & Papert (1969)</div>
+            <div class="card-desc">The critique that built on Rosenblatt's theoretical framework — and froze the field.</div>
+        </a>
+        <a href="multi-threshold-perceptron.html" class="related-card">
+            <div class="card-title">Multi-Threshold Perceptron (1958)</div>
+            <div class="card-desc">A divergence architecture extending the perceptron — the kind of variant Rosenblatt might have explored.</div>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>historAI — The history of artificial intelligence, remade from scratch.</p>
+    </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
