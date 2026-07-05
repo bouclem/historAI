@@ -41,20 +41,29 @@
         </div>
         <div class="legend-item">
             <span class="legend-dot worse"></span>
-            <span>Divergence — things went worse</span>
+            <span>Divergence — performs worse than real history</span>
         </div>
         <div class="legend-item">
             <span class="legend-dot better"></span>
-            <span>Divergence — things went better</span>
+            <span>Divergence — performs better than real history</span>
         </div>
         <div class="legend-item">
             <span class="legend-dot untested"></span>
-            <span>Divergence — untested</span>
+            <span>Divergence — not yet benchmarked</span>
         </div>
         <div class="legend-item">
             <span class="legend-dot neutral"></span>
-            <span>Divergence — neutral</span>
+            <span>Divergence — performs similarly to real history</span>
         </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="info-note">
+        Every architecture on this timeline — both real and divergence — is implemented from
+        scratch in Python and benchmarked against the same datasets. The divergence labels are
+        not speculation: they reflect actual benchmark results comparing each architecture's
+        performance to its real-history counterpart.
     </div>
 </section>
 

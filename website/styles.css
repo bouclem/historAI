@@ -193,6 +193,19 @@ nav ul a:hover {
 .legend-dot.untested { background: var(--color-untested); }
 .legend-dot.neutral { background: var(--color-neutral); }
 
+/* --- Info Note --- */
+.info-note {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+    max-width: 720px;
+}
+
 /* --- Timeline --- */
 .timeline {
     position: relative;
